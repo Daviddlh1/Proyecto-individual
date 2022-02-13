@@ -1,0 +1,7 @@
+.container {
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #171a21;
+    padding: 50px;
+}

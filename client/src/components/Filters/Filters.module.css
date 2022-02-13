@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.container .select {
+    background-color: #c7d5e0;
+    color: white;
+    border:1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bold;
+    margin: 0 10px;
+}

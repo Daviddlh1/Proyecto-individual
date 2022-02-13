@@ -1,0 +1,8 @@
+.container {
+    background-color: #171a21;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    width: auto;
+    padding: 0 5px;
+}
