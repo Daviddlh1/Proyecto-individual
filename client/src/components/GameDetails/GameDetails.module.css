@@ -1,0 +1,36 @@
+.main_container {
+   /*  height: 100%;
+    width: 100%; */
+    color: white;
+    display: grid;
+    place-content: center;
+}
+.container {
+    display: grid;
+    grid-template-rows: 50px 1fr 1fr;
+    place-content: center;
+    padding: 5%;
+}
+.img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px 25px 0 0;
+}
+.info_container {
+    background-color: #1b2838;
+    padding: 20px;
+    border-radius: 0 0 25px 25px;
+}
+
+.description_container span {
+    font-weight: bold;
+}
+
+.platforms_container, .genres_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: auto;
+}
+

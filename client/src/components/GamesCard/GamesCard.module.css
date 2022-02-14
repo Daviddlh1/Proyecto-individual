@@ -8,10 +8,15 @@
     padding: 10px;
     height: 300px;
 }
-.container:hover .img {
+.container:hover {
+    border: 1px solid rgba(67, 195, 255, 1);
     transform: scale(1.2);
-    opacity: 0.5;
     transition: transform 1.5s;
+}
+.container:hover .img {
+    /* transform: scale(1.2); */
+    opacity: 0.5;
+    /* transition: transform 1.5s; */
     cursor: pointer;
 }
 

@@ -3,7 +3,9 @@
     display: flex;
     justify-content: space-around;
     padding: 20px;
+    width: 100%;
 }
+
 .home {
     background-color: #c7d5e0;
     padding: 10px;
@@ -11,10 +13,15 @@
     border: 1px solid white;
     color: white;
 }
+
 .button {
     padding: 10px;
     background-color: #c7d5e0;
     color: white;
     border: 1px solid white;
     border-radius: 10px;
+}
+
+.home:hover, .button:hover {
+    cursor: pointer;
 }

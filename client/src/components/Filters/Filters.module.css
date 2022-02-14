@@ -13,3 +13,7 @@
     font-weight: bold;
     margin: 0 10px;
 }
+
+.select:hover {
+    cursor: pointer;
+}

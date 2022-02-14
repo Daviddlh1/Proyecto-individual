@@ -1,7 +1,8 @@
 .container {
     display: grid;
     place-items: center;
-    height: 100vh;
+    height: 100;
+    width: 100%;
 }
 
 .input_container {
@@ -47,6 +48,7 @@
     padding: 50px;
     border-radius: 50px;
     height: 500px;
+    margin: 20px 0;
 }
 .submit {
     margin-top: 5px;

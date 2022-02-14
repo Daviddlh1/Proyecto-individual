@@ -4,6 +4,8 @@ import {useDispatch, useSelector} from "react-redux"
 import { useParams } from "react-router-dom";
 import Option from "../Option/Option";
 import styles from "./GameDetails.module.css"
+import Loading from "../Loading/Loading";
+import NavBar from "../NavBar/NavBar";
 
 
 
@@ -14,26 +16,36 @@ export default function GameDetails() {
         dispatch(getVideoGameByID(id))
     },[]);
 
-    const {videoGame, platforms, genres} = useSelector((state) => state);
-
- return(
-    <div>
-        <img className={styles.img} src={videoGame.image} alt="" />
-        <div>
-            <div>
-                <p>{videoGame.name}</p>
-                {videoGame.description}
-                <p>{videoGame.release_date}</p>
-                <p>{videoGame.rating}</p>
-                <div>
-                    <h2>Platforms</h2>
-                    {platforms.map((p, i) => <Option key={i} platformOrGenre={p}/>)}
-                </div>
-                <div>
-                    genres
+    const {videoGame} = useSelector((state) => state);
+    console.log(videoGame.genres);
+ return(videoGame.name?
+    <div className={styles.main_container}>
+        <NavBar/>
+        <div className={styles.container}>
+            <h1>{videoGame.name}</h1>
+            <img className={styles.img} src={videoGame.image} alt="" />
+            <div className={styles.info_container}>
+                <div className={styles.second_info_container}>
+                    <div className={styles.description_container}>
+                        <div className={styles.description} dangerouslySetInnerHTML={{__html:videoGame.description}}/>
+                        <p><span>Released date: </span>{videoGame.release_date}</p>
+                        <p><span>Rating: </span>{videoGame.rating}</p>
+                    </div>
+                    <div>
+                        <h2>Platforms</h2>
+                        <div className={styles.platforms_container}>
+                            {videoGame.platforms.map((p, i) => <Option className={styles.platform} key={i} platformOrGenre={p}/>)}
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Genres</h2>
+                        <div className={styles.genres_container}>
+                            {videoGame.genres.map((g, i) => <Option key={i} platformOrGenre={g}/>)}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>:<Loading/>
  )
 }

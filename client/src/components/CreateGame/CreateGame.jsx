@@ -1,7 +1,7 @@
 import React,{ useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom";
 import { getGenres, getPlatforms, postVideoGame } from "../../redux/actions";
+import NavBar from "../NavBar/NavBar";
 import styles from "./CreateGame.module.css"
 
 
@@ -84,6 +84,7 @@ export default function CreateGame() {
 
     return (
         <div className={styles.container}>
+            <NavBar/>
             <form className={styles.form} onSubmit={onSubmitHandler}>
                 <div className={styles.input_container} >
                     <label className={styles.label} htmlFor="">Name</label>
