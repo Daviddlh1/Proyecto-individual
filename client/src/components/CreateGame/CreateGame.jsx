@@ -25,8 +25,8 @@ export default function CreateGame() {
     },[]);
 
     function validator(input) {
-        const errors = {};
-        if(!input.name){
+        const err = {};
+        /* if(!input.name){
             errors.name = 'This field is required';
         }
 
@@ -52,7 +52,34 @@ export default function CreateGame() {
             errors.genres = 'The game Should have at least one genre'
         }
         console.log(errors)
-        return errors;
+        return errors; */
+        if (!input.name) {
+            err.name = "El nombre es requerido!";
+          } else if (!/^[A-Za-z0-9\s]+$/g.test(input.name)) {
+            err.name = "El nombre es invalido!";
+          }
+        
+          if (!input.description) {
+            err.description = "La descripcion es requerida!";
+          } else if (!/^[A-Za-z0-9\s]+$/g.test(input.description)) {
+            err.description = "La descripcion es invalida!";
+          } else if (input.description?.length < 50) {
+            err.description = "Tiene que tener al menos 50 letras!";
+          }
+        
+          if (!input.rating) {
+            err.rating = "El Puntage es requerido!";
+          } else if (input.rating > 5 || input.rating < 0) {
+            err.rating = "El Puntage es invalido!";
+          }
+        
+          if (input.genres?.length === 0) {
+            err.genres = "Tienes que escojer al menos un Genero!";
+          }
+        
+          if (input.platforms?.length === 0) {
+            err.platforms = "Tienes que escojer al menos una Plataforma!";
+          }
     }
     
     function onChangeHandler(e) {

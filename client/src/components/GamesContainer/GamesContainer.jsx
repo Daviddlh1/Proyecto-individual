@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import GamesCard from "../GamesCard/GamesCard";
 import Loading from "../Loading/Loading";
@@ -7,17 +7,11 @@ import styles from "./GamesContainer.module.css"
 
 
 
-export default function VideoGameContainer() {
-    const {displayableGames} = useSelector((state)=> state);
-    const dispatch = useDispatch()
-    useEffect(()=> {
-        dispatch(getVideoGames())
-        dispatch(getPlatforms());
-    },[])
+export default function VideoGameContainer({currentGames}) {
 
-    return displayableGames.length? (
+    return currentGames.length? (
         <div className={styles.container}>
-            {displayableGames.map(v=> 
+            {currentGames.map(v=> 
             <GamesCard 
             key={v.id}
             id={v.id} 
