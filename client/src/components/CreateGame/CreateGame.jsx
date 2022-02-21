@@ -26,33 +26,6 @@ export default function CreateGame() {
 
     function validator(input) {
         const err = {};
-        /* if(!input.name){
-            errors.name = 'This field is required';
-        }
-
-        if(!input.release_date){
-            errors.release_date = 'This field is required';
-        }
-
-        if(!input.image){
-            errors.image = 'This field is required';
-        }
-
-        if(!input.rating){
-            errors.rating = 'This field is required';
-        }else if(!/^[1-9]\d*$/.test(input.rating)) {
-            errors.rating = 'Needs to be an number';
-        }
-
-        if(input.platforms.length === 0){
-            errors.platforms = 'The game should be in at least one platform'
-        }
-
-        if(input.genres.length === 0){
-            errors.genres = 'The game Should have at least one genre'
-        }
-        console.log(errors)
-        return errors; */
         if (!input.name) {
             err.name = "El nombre es requerido!";
           } else if (!/^[A-Za-z0-9\s]+$/g.test(input.name)) {
@@ -79,7 +52,8 @@ export default function CreateGame() {
         
           if (input.platforms?.length === 0) {
             err.platforms = "Tienes que escojer al menos una Plataforma!";
-          }
+        }
+        return err;
     }
     
     function onChangeHandler(e) {
@@ -93,7 +67,6 @@ export default function CreateGame() {
             :e.target.value
         });
         setErrors(validator({
-            ...game,
             [e.target.name]: e.target.value
         }))
         console.log(errors);
@@ -101,9 +74,9 @@ export default function CreateGame() {
 
     function onSubmitHandler(e) {
         e.preventDefault()
-        if(errors.name || errors.release_date ||errors.iamge || errors.description || errors.rating || errors.platforms || errors.genres){
-            alert('Cannot create the Game due to the following errors', errors);
-        }else{
+        if(errors.name || errors.release_date ||errors.image || errors.description || errors.rating || errors.platforms || errors.genres){
+            alert('There is missing info');
+        }else if(game.name || game.release_date || game.image || game.description ||game.rating || game.platforms ||game.genres){
             dispatch(postVideoGame(game))
         }
         console.log(game)
